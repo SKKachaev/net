@@ -6,8 +6,8 @@
 
 using boost::asio::ip::tcp;
 using std::string;
-char* tmp_address = "www.example.com";
-char* tmp_request = "/help";
+string tmp_address("www.example.com");
+string tmp_request("/help");
 
 
 int main()
