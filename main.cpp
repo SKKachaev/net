@@ -6,13 +6,14 @@
 
 using boost::asio::ip::tcp;
 using std::string;
-string tmp_address("www.example.com");
-string tmp_request("/help");
 
 
-int main()
+int main() try
 {
     boost::asio::io_service io_service;
+
+    string tmp_address("www.example.com");
+    string tmp_request("/help");
 
     // Get a list of endpoints corresponding to the server name.
     tcp::resolver resolver(io_service);
@@ -82,4 +83,8 @@ int main()
         throw boost::system::system_error(error);
 
     return 0;
+} catch(std::exception& e) {
+    std::cerr << e.what() << std::endl;
+} catch(...) {
+    std::cerr << "catch not an exception" << std::endl;
 }
